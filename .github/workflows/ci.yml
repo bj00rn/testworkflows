@@ -15,8 +15,6 @@ on:
     # Run roughly every 15 days at 00:00 UTC
     # (useful to check if updates on dependencies break the package)
   #  - cron: '0 0 1,16 * *'
-  release:
-    types: [published]
 
 permissions:
   contents: read
@@ -104,7 +102,7 @@ jobs:
     environment:
       name: pypi-publish
     needs: finalize
-    if: ${{ (github.event_name == 'push' || (github.event_name == 'release' && github.event.action == 'published')) && contains(github.ref, 'refs/tags/') }}
+    if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && contains(github.ref, 'refs/tags/') }}
     runs-on: ubuntu-latest
     permissions:
       contents: write

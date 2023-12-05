@@ -102,7 +102,7 @@ jobs:
     environment:
       name: pypi-publish
     needs: finalize
-    if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && contains('refs/tags/', github.ref) }}
+    if: ${{ contains(fromJSON('["push", "workflow_dispatch"]'), github.event_name) && contains(github.ref, 'refs/tags/') }}
     runs-on: ubuntu-latest
     permissions:
       contents: write

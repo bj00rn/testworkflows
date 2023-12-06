@@ -120,7 +120,8 @@ jobs:
           # - https://docs.github.com/en/actions/security-guides/encrypted-secrets
           # TWINE_REPOSITORY: pypi
           TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+          # TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN_TEST }}
         run: pipx run tox -e publish
 
   github_pages: # deploy docs to github pages

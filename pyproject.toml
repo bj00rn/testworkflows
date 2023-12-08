@@ -10,4 +10,4 @@ version_scheme = "no-guess-dev"
 
 
 [tool.workflows]
-version = "1.0.6-rc.0"
+version = "1.0.6"
